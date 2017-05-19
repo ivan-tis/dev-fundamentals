@@ -8,9 +8,16 @@
 public class Task
 {
     private String description;
+    private String name;
+    private String owner;
+    private int timeToComplete;
+    
     public Task()
     {
         this.description = "";
+        this.name = "";
+        this.owner = "";
+        this.timeToComplete = 0;
     }
     
     public String getDescription(){
@@ -20,4 +27,30 @@ public class Task
     public void setDescription(String description){
        this.description = description;
     }
+    
+    
+    public String getName(){
+        return name;
+    }
+    
+    public void setName(String name){
+       this.name = name;
+    }
+    
+    public String getOwner(){
+        return owner;
+    }
+    
+    public void setOwner(String owner){
+       this.owner = owner;
+    }
+    
+        public int getTimeToComplete(){
+        return timeToComplete;
+    }
+    
+    public void setTimeToComplete(int timeToComplete){
+       this.timeToComplete = timeToComplete;
+    }
+   
 }

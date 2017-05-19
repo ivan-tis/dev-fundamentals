@@ -10,3 +10,42 @@ VERSION or DATE:
 HOW TO START THIS PROJECT:
 AUTHORS:
 USER INSTRUCTIONS:
+
+0- create a Project
+1- create tasks
+2- Delete tasks
+3- Edit tasks
+4- Set dependencies between  tasks
+5- calculate the minimum time to deliver
+6- List the tasks that are in the critical path
+
+US 0. As a suer i should be able to create a new Project
+       with the following information:
+       * Name
+       * Start Date
+
+US 1. As a user I should be able to create a new task,
+      including its most important information: 
+      * Name
+      * Description
+      * Responsible
+      * Estimated completion time
+      * Dependency on other tasks(optional)
+     
+US 2. As a user I should be able to delete a given task
+
+US 3. As a user I should be able to edit the information of a given task
+
+US 4. As a user I should be able to set dependencies between tasks 
+      to indicate a task cannot start until another is finished 
+      
+US 5. As a user i should get the date when a project can be completed,
+      given a set of task.
+      
+US 6. As a user I should see a list of task that belong to the critical path
+
+
+
+
+
+

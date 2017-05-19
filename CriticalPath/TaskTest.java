@@ -13,24 +13,87 @@ import org.junit.Test;
  */
 public class TaskTest
 {
+  /**
+   * US1
+   */
   @Test
   public void createInstanceOfTask(){
       Task emptyTask = new Task();
       assertTrue(emptyTask instanceof Task);
       assertTrue(emptyTask instanceof Object);
   }
-  
+    /**
+   * US1
+   */
   @Test
   public void readDescriptionProperty(){
       Task emptyTask = new Task();
       assertEquals("", emptyTask.getDescription());
   }
-  
+    /**
+   * US1
+   */
     @Test
   public void writeDescriptionProperty(){
       Task emptyTask = new Task();
       emptyTask.setDescription("this is a task");
       assertEquals("this is a task", emptyTask.getDescription());
   }
-//https://github.com/ivan-tis/dev-fundamentals.git
+  
+    /**
+   * US1
+   */
+  @Test
+  public void readNameProperty(){
+      Task emptyTask = new Task();
+      assertEquals("", emptyTask.getName());
+  }
+  
+    /**
+   * US1
+   */
+    @Test
+  public void writeNameProperty(){
+      Task emptyTask = new Task();
+      emptyTask.setName("this is a Name");
+      assertEquals("this is a Name", emptyTask.getName());
+  }
+  
+   /**
+   * US1
+   */
+  @Test
+  public void readOwnerProperty(){
+      Task emptyTask = new Task();
+      assertEquals("", emptyTask.getOwner());
+  }
+  
+    /**
+   * US1
+   */
+    @Test
+  public void writeOwnerProperty(){
+      Task emptyTask = new Task();
+      emptyTask.setOwner("Raul");
+      assertEquals("Raul", emptyTask.getOwner());
+  }
+  
+     /**
+   * US1
+   */
+  @Test
+  public void readTimeToCompleteProperty(){
+      Task emptyTask = new Task();
+      assertEquals(0, emptyTask.getTimeToComplete());
+  }
+  
+    /**
+   * US1
+   */
+    @Test
+  public void writeTimeToCompleteProperty(){
+      Task emptyTask = new Task();
+      emptyTask.setTimeToComplete(10);
+      assertEquals(10, emptyTask.getTimeToComplete());
+  }
 }
