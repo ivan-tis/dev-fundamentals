@@ -96,4 +96,15 @@ public class TaskTest
       emptyTask.setTimeToComplete(10);
       assertEquals(10, emptyTask.getTimeToComplete());
   }
+  
+    /**
+   * US1
+   */
+    @Test
+  public void createTaskWithNameAndTimeToComplete(){
+      Task emptyTask = new Task("t1", 4);
+  
+      assertEquals("t1", emptyTask.getName());
+      assertEquals(4, emptyTask.getTimeToComplete());
+  }
 }

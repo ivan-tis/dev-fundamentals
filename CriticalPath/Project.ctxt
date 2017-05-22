@@ -2,4 +2,12 @@
 comment0.target=Project
 comment1.params=
 comment1.target=Project()
-numComments=2
+comment2.params=name
+comment2.target=Project(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment4.params=task
+comment4.target=void\ addTask(Task)
+comment5.params=
+comment5.target=int\ calculateTimeToDelivery()
+numComments=6

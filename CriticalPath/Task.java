@@ -11,13 +11,18 @@ public class Task
     private String name;
     private String owner;
     private int timeToComplete;
-    
     public Task()
     {
         this.description = "";
         this.name = "";
         this.owner = "";
         this.timeToComplete = 0;
+    }
+    
+    public Task(String name, int timeToComplete)
+    {
+        this.name = name;
+        this.timeToComplete = timeToComplete;
     }
     
     public String getDescription(){
