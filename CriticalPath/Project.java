@@ -12,14 +12,14 @@ public class Project
 {
     private String name;
     private Date date;
-    private Vector tasks;
+    private Vector<Task> tasks;
     
     public Project(){
-        tasks = new Vector();
+        tasks = new Vector<Task>();
     }
     public Project(String name)
     {
-        tasks = new Vector();
+        tasks = new Vector<Task>();
         this.name = name;
     }
     
@@ -32,12 +32,14 @@ public class Project
     }
     public int calculateTimeToDelivery(){
         int maxTimeToComplete = 0;
-        for(Object element: tasks){
-          Task task = (Task) element;
-          if(task.getTimeToComplete()>maxTimeToComplete){
-              maxTimeToComplete = task.getTimeToComplete();
-          }
+       for(Task task: tasks){  
+              int time = task.calculateTimeToComplete();
+                if(time > maxTimeToComplete){
+                maxTimeToComplete = time;
+                }
+    
         }
         return maxTimeToComplete;
     }
+
 }

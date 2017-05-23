@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ calculateTimeToDeliverOfASingleTask()
 comment4.params=
 comment4.target=void\ calculateTimeToDeliverOf2NonDependentTask()
-numComments=5
+comment5.params=
+comment5.target=void\ calculateTimeToDeliveryOf2DependentTask()
+numComments=6

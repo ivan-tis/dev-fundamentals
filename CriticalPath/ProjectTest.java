@@ -27,8 +27,8 @@ public class ProjectTest
         
         assertTrue(project instanceof Project);
         assertEquals("My first Project", project.getName());
-    }   
-      //US1
+    } 
+        //US1
     @Test
     public void calculateTimeToDeliverOfASingleTask(){
         Project project = new Project("Sample");
@@ -38,8 +38,8 @@ public class ProjectTest
         project.addTask(singleTask);
         assertEquals(5, project.calculateTimeToDelivery());
     }
-      //US1
-        @Test
+    //US1
+    @Test
     public void calculateTimeToDeliverOf2NonDependentTask(){
         Project project = new Project("Sample");
         Task firstTask = new Task("t1", 6);
@@ -47,6 +47,24 @@ public class ProjectTest
         
         project.addTask(firstTask);
         project.addTask(secondTask);
+        
+        
         assertEquals(6, project.calculateTimeToDelivery());
+    }
+    //US1
+    @Test
+    public void calculateTimeToDeliveryOf2DependentTask(){
+        Project project = new Project("Sample");
+        
+        Task firstTask = new Task("t1", 5);
+        Task secondTask = new Task("t2", 3);
+        
+        secondTask.dependsOn(firstTask);
+        
+        project.addTask(firstTask);
+        project.addTask(secondTask);
+        
+        
+        assertEquals(8, project.calculateTimeToDelivery());
     }
 }
