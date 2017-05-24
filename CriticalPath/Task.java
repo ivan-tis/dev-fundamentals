@@ -67,21 +67,15 @@ public class Task
         preRequisite.add(otherTask);
     }
     
-    public Vector<Task> getPreRequisite(){
-        return preRequisite;
-    }
-    
     public int calculateTimeToComplete(){
-        int timeTask = 0;
+        int maxPreRequisiteTime = 0;
         int time = getTimeToComplete();
-        if(getPreRequisite()!= null){
           for(Task task: preRequisite){
-            if(timeTask < task.getTimeToComplete()){
-            timeTask = task.getTimeToComplete();
+            if( task.calculateTimeToComplete() > maxPreRequisiteTime){
+            maxPreRequisiteTime = task.calculateTimeToComplete();
             }  
          }
-         time = time + timeTask;
-        }
+         time = time + maxPreRequisiteTime;
         return time;
     }
    
