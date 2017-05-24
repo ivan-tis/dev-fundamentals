@@ -66,5 +66,23 @@ public class ProjectTest
         
         
         assertEquals(8, project.calculateTimeToDelivery());
-    }
+    } 
+        //US1
+    @Test
+    public void calculateTimeToDeliveryOf3DependentTask(){
+        Project project = new Project("Sample");
+        
+        Task firstTask = new Task("t1", 5);
+        Task secondTask = new Task("t2", 3);
+        Task thirdTask = new Task("t3", 6);
+        
+        thirdTask.dependsOn(firstTask);
+        thirdTask.dependsOn(secondTask);
+        
+        project.addTask(firstTask);
+        project.addTask(secondTask);
+        project.addTask(thirdTask);
+        
+        assertEquals(11, project.calculateTimeToDelivery());
+    }    
 }

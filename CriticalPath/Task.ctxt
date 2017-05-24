@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=Task
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Task\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=Task()
 comment10.params=timeToComplete
@@ -8,7 +7,7 @@ comment10.target=void\ setTimeToComplete(int)
 comment11.params=otherTask
 comment11.target=void\ dependsOn(Task)
 comment12.params=
-comment12.target=Task\ getPreRequisite()
+comment12.target=java.util.Vector\ getPreRequisite()
 comment13.params=
 comment13.target=int\ calculateTimeToComplete()
 comment2.params=name\ timeToComplete

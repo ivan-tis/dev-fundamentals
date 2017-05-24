@@ -5,16 +5,18 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+import java.util.Vector;
 public class Task
 {
     private String description;
     private String name;
     private String owner;
     private int timeToComplete;
-    private Task preRequisite;
+    private Vector<Task> preRequisite; 
     
     public Task()
     {
+        preRequisite = new Vector<Task>();
         this.description = "";
         this.name = "";
         this.owner = "";
@@ -23,6 +25,7 @@ public class Task
     
     public Task(String name, int timeToComplete)
     {
+        preRequisite = new Vector<Task>();
         this.name = name;
         this.timeToComplete = timeToComplete;
     }
@@ -61,19 +64,26 @@ public class Task
     }
     
     public void dependsOn(Task otherTask){
-        preRequisite = otherTask;
+        preRequisite.add(otherTask);
     }
     
-    public Task getPreRequisite(){
+    public Vector<Task> getPreRequisite(){
         return preRequisite;
     }
     
     public int calculateTimeToComplete(){
+        int timeTask = 0;
         int time = getTimeToComplete();
         if(getPreRequisite()!= null){
-          time = time + getPreRequisite().getTimeToComplete();
+          for(Task task: preRequisite){
+            if(timeTask < task.getTimeToComplete()){
+            timeTask = task.getTimeToComplete();
+            }  
+         }
+         time = time + timeTask;
         }
         return time;
     }
    
 }
+       
