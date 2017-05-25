@@ -10,4 +10,6 @@ comment4.params=task
 comment4.target=void\ addTask(Task)
 comment5.params=
 comment5.target=int\ calculateTimeToDelivery()
-numComments=6
+comment6.params=
+comment6.target=int\ countTasks()
+numComments=7

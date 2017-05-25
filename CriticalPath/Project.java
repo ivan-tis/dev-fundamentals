@@ -7,12 +7,12 @@
  */
 import java.util.Date;
 import java.util.Vector;
-
+import java.util.Collection;
 public class Project
 {
     private String name;
     private Date date;
-    private Vector<Task> tasks;
+    private Collection<Task> tasks;
     
     public Project(){
         tasks = new Vector<Task>();
@@ -28,7 +28,9 @@ public class Project
     }
     
     public void addTask(Task task){
-        tasks.add(task);
+        if(!tasks.contains(task)){
+              tasks.add(task);
+        }
     }
     public int calculateTimeToDelivery(){
         int maxTimeToComplete = 0;
@@ -41,5 +43,8 @@ public class Project
         }
         return maxTimeToComplete;
     }
-
+    
+    public int countTasks(){
+     return tasks.size();
+    }
 }

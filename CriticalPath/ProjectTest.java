@@ -164,5 +164,19 @@ public class ProjectTest
         
         secondTask.setTimeToComplete(10);
         assertEquals(16, project.calculateTimeToDelivery());
-    }      
+    }
+    
+        //US3
+    @Test
+    public void projectCannotHaveDuplicateTask(){
+        Project project = new Project("Sample");
+        Task firstTask = new Task("t1", 5);
+        
+        project.addTask(firstTask);
+        project.addTask(new Task("t1", 5));
+ 
+
+        assertEquals(1, project.countTasks());
+  
+    } 
 }

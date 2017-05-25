@@ -69,14 +69,19 @@ public class Task
     
     public int calculateTimeToComplete(){
         int maxPreRequisiteTime = 0;
-        int time = getTimeToComplete();
           for(Task task: preRequisite){
             if( task.calculateTimeToComplete() > maxPreRequisiteTime){
             maxPreRequisiteTime = task.calculateTimeToComplete();
             }  
          }
-         time = time + maxPreRequisiteTime;
-        return time;
+         return getTimeToComplete() + maxPreRequisiteTime;
+    }
+    
+    @Override
+    public boolean equals(Object otherObject){
+        Task otherTask = (Task) otherObject;
+        return this.name.equals(otherTask.name) &&
+        timeToComplete == otherTask.timeToComplete;
     }
    
 }
