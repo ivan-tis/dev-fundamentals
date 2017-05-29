@@ -6,20 +6,22 @@
  * @version (a version number or a date)
  */
 import java.util.Date;
-import java.util.Vector;
+import java.util.Set;
+import java.util.HashSet;
 import java.util.Collection;
+import java.util.List;
+import java.util.Vector;
 public class Project
 {
     private String name;
-    private Date date;
-    private Collection<Task> tasks;
+    private Set<Task> tasks;
     
     public Project(){
-        tasks = new Vector<Task>();
+        tasks = new HashSet<Task>();
     }
     public Project(String name)
     {
-        tasks = new Vector<Task>();
+        tasks = new HashSet<Task>();
         this.name = name;
     }
     
@@ -28,9 +30,9 @@ public class Project
     }
     
     public void addTask(Task task){
-        if(!tasks.contains(task)){
+       // if(!tasks.contains(task)){
               tasks.add(task);
-        }
+       // }
     }
     public int calculateTimeToDelivery(){
         int maxTimeToComplete = 0;
@@ -46,5 +48,11 @@ public class Project
     
     public int countTasks(){
      return tasks.size();
+    }
+    
+    public List<Task> calculateCriticalPath(){ 
+        List<Task> path = new Vector<Task>();
+        
+        return  path;
     }
 }
