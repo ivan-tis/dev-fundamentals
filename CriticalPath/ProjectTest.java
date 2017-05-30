@@ -219,21 +219,43 @@ public class ProjectTest
         project.addTask(seventhTask);
         assertEquals(15, project.calculateTimeToDelivery());
         
-       // List<Task> criticalPath = project.calculateCriticalPath();
-       // assertEquals(5, criticalPath.size());
+        //List<Task> criticalPath = project.calculateCriticalPath();
+        //assertEquals(5, criticalPath.size());
         
     }  
     
     @Test
     public void criticalPathOfSingleTaskIsAListWithOnlyOneElement(){
-      //  Project project = new Project("Sample");
+        //Task task = new Task("t2", 3); 
+        //List<Task> expected = new Vector<Task>();
+        //expected.add(task);        
+        //  Project project = new Project("Sample");
         project.addTask(new Task("t1", 6));
-        Task task = new Task("t1", 1); 
-        List<Task> expected = new Vector<Task>();
-        expected.add(task);
         List<Task> criticalPath = project.calculateCriticalPath();
-        assertEquals(expected, criticalPath);
-       
+        assertEquals(1, criticalPath.size());   
+    }
+    
+    @Test
+    public void criticalPathOfTwoTasksIsAListWithTwoElement(){
+        project.addTask(new Task("t1", 6));
+        project.addTask(new Task("t2", 5));
+        List<Task> criticalPath = project.calculateCriticalPath();
+        assertEquals(2, criticalPath.size());   
+    }
+    
+    @Test
+    public void criticalPathOfTreeTasksIsAListWithTwoElementtttttttttttttttt(){
+        Task firstTask = new Task ("t1", 6);
+        Task secondTask = new Task ("t2", 5);
+        Task thirdTask = new Task ("t3", 4);
+        project.addTask(firstTask);
+        project.addTask(secondTask);
+        project.addTask(thirdTask);
         
-    }  
+        firstTask.dependsOn(secondTask);
+        firstTask.dependsOn(thirdTask);
+        
+        List<Task> criticalPath = project.calculateCriticalPath();
+        assertEquals(2, criticalPath.size());   
+    }
 }

@@ -91,8 +91,11 @@ public class Task
     
     @Override
     public String toString(){
-        return String.format("<n:%s , t:%s>", name, timeToComplete);
+        return String.format("<name:%s , time:%s>", name, timeToComplete);
     }
    
+    public Vector<Task> getPreRequisite(){
+     return preRequisite;
+    }
 }
        
