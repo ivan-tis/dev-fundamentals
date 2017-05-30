@@ -244,7 +244,7 @@ public class ProjectTest
     }
     
     @Test
-    public void criticalPathOfTreeTasksIsAListWithTwoElementtttttttttttttttt(){
+    public void criticalPathOfTreeTasksIsAListWithTwoElement(){
         Task firstTask = new Task ("t1", 6);
         Task secondTask = new Task ("t2", 5);
         Task thirdTask = new Task ("t3", 4);

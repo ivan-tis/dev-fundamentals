@@ -54,14 +54,7 @@ public class Project
         int maxTimeToComplete = 0;
         List<Task> path = new Vector<Task>();
         for(Task task: tasks){
-           Vector<Task> preTasks = task.getPreRequisite();
-           for(Task preTask: preTasks){
-               int time = preTask.getTimeToComplete();
-               if(time > maxTimeToComplete){
-                maxTimeToComplete = time;
                  path.add(task); 
-               }
-            }
         }
         return  path;
     }
