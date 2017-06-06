@@ -22,7 +22,6 @@ public class DrawingWindow extends JFrame
         
         DrawingWindow window = new DrawingWindow("Drawing example");
         window.setSize(500, 150);
-        
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
     }
