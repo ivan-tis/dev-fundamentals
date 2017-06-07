@@ -7,4 +7,6 @@ comment2.params=event
 comment2.target=void\ mouseClicked(java.awt.event.MouseEvent)
 comment3.params=g
 comment3.target=void\ paint(java.awt.Graphics)
-numComments=4
+comment4.params=
+comment4.target=java.awt.Color\ getRandomColor()
+numComments=5
