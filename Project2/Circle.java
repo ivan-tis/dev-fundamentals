@@ -7,7 +7,7 @@ import java.awt.Graphics;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Circle implements Comparable<Circle>
+public class Circle
 {
     private int radius;
     private int x;
@@ -36,17 +36,17 @@ public class Circle implements Comparable<Circle>
     }
     
     public void draw(Graphics g) {
-        if (changeAspect) {
-            color = getNextColor();
-            changeAspect = false;
-            radius = (int)(200 * Math.random());
-        }
         g.setColor(color);
         g.fillOval(x - radius , y - radius, radius * 2, radius * 2);
     }
     
     public void clickAt(int x, int y) {
         changeAspect = isInsideCircle(x, y);
+         if (changeAspect) {
+            color = getNextColor();
+            changeAspect = false;
+            radius = (int)(200 * Math.random());
+        }
     }
     
     
@@ -66,9 +66,5 @@ public class Circle implements Comparable<Circle>
         return d <= radius;
     }
     
-    @Override   
-    public int compareTo(Circle circle) {
-          return Integer.compare(circle.getRadius(), this.radius);
-    }
 
 }
