@@ -1,48 +1,74 @@
+
 import java.awt.Color;
+import java.awt.Graphics;
 /**
  * Write a description of class Circle here.
- *
- * @author (your name)
+ * 
+ * @author (your name) 
  * @version (a version number or a date)
  */
-public class Circle
+public class Circle implements Comparable<Circle>
 {
-  private int x;
-  private int y;
-  private int radio;
-  private Color color;
-
-  public Circle(int radio){
-      color = Color.yellow;
-      this.radio = radio;
+    private int radius;
+    private int x;
+    private int y;
+    private Color color;
+    private boolean changeAspect;
+    
+    public Circle(int radius, Color color) {
+        this.radius = radius;
+        this.color = color;
     }
-  public void setColor(Color color){
-      this.color = color;
-  }
-  public void setX(int x){
-      this.x = x;
-  }
-  public void setY(int y){
-      this.y = y;
-  }
-  
-  public Color getColor(){
-    return color;
-  }
-  
-  public int getX(){
-      return x;
-  }
-  public int getY(){
-      return y;
-  } 
-  public boolean isInTheCicle(int xPoint, int yPoint){
-      boolean isInTheCicle;
-      if (Math.sqrt(Math.pow(this.x-xPoint,2) + Math.pow(this.y - yPoint,2)) <= radio){
-            isInTheCicle = true; 
-        }else{
-            isInTheCicle = false; 
-        } 
-      return isInTheCicle;
-  }
+    public int getRadius(){
+       return radius;
+    }
+    public Circle(int x, int y) {
+        this.x = x;
+        this.y = y;
+        color = getNextColor();
+        radius = 25;
+    }
+    
+    public void draw(Graphics g, int x, int y) {
+        this.draw(g);
+        this.x = x;
+        this.y = y;
+    }
+    
+    public void draw(Graphics g) {
+        if (changeAspect) {
+            color = getNextColor();
+            changeAspect = false;
+            radius = (int)(200 * Math.random());
+        }
+        g.setColor(color);
+        g.fillOval(x - radius , y - radius, radius * 2, radius * 2);
+    }
+    
+    public void clickAt(int x, int y) {
+        changeAspect = isInsideCircle(x, y);
+    }
+    
+    
+    
+    private Color getNextColor() {
+        int red = (int) (255 * Math.random());
+        int green = (int) (255 * Math.random());
+        int blue = (int) (255 * Math.random());
+        
+        return new Color(red, green, blue);
+    }
+    
+    public boolean isInsideCircle(int x, int y) {
+        int xCenter = this.x;
+        int yCenter = this.y;
+        double d = Math.hypot(yCenter - y, xCenter - x);
+        return d <= radius;
+    }
+    
+    @Override   
+    public int compareTo(Circle circle) {
+          return Integer.compare(circle.getRadius(), this.radius);
+    }
+
 }

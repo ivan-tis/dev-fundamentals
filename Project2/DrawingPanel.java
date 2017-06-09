@@ -1,49 +1,75 @@
+
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Random;
+import java.util.Collection;
+import java.util.Vector;
 
-
-
+import java.util.Collections;
+import java.util.List;
+import java.util.Comparator;
 /**
  * Write a description of class DrawingPanel here.
- *
- * @author (your name)
+ * 
+ * @author (your name) 
  * @version (a version number or a date)
  */
 public class DrawingPanel extends JPanel
 {
-     private Random rand = new Random();
-     private Circle circle = new Circle(25);
-
-         
-    public DrawingPanel(){
-      setBackground(Color.GRAY);
-      addMouseListener(new MouseAdapter(){
+    //private Circle circle;
+    private List<Circle> circles;
+    private List<Circle> circles2;
+    public DrawingPanel() {
+        
+        //circle = new Circle(25, Color.yellow);
+        circles = new Vector<Circle>();
+        circles2 = new Vector<Circle>();
+        setBackground(Color.GRAY);
+        
+        addMouseListener(new MouseAdapter(){
             @Override
-            public void mouseClicked(MouseEvent event){
-               System.out.println(event.getPoint()); 
-               if (circle.isInTheCicle(event.getX(), event.getY())) {
-                   circle.setColor(getRandomColor());
-                }
-               repaint();
+            public void mouseClicked(MouseEvent event) {
+                Collections.sort(circles); 
+                if (!clickIsInsideAnyCircle(event)) {
+                    addNewCircle(event);
+                }    
+           
+                repaint();
             }
         });
     }
     
-    @Override
-    public void paint(Graphics g){
-        super.paint(g);
-        g.setColor(circle.getColor());
-        circle.setX(getWidth()/2);
-        circle.setY(getHeight()/2);
-        g.fillOval(circle.getX() - (50/2),circle.getY() - (50/2),50,50);
+    private boolean clickIsInsideAnyCircle(MouseEvent event) {
+        boolean isInsideAnyCircle = false;
+        for (Circle circle: circles) {
+            circle.clickAt(event.getX(), event.getY());
+            if (circle.isInsideCircle(event.getX(), event.getY())) {
+                isInsideAnyCircle = true;
+            }            
+        }
+        return isInsideAnyCircle;
     }
     
-    private Color getRandomColor() {
-        return new Color(rand.nextFloat(), rand.nextFloat(),
-        rand.nextFloat());
+    private void addNewCircle(MouseEvent event) {
+        circles.add(new Circle(event.getX(), event.getY()));
+    }
+    
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        for (Circle circle: circles2) {
+            System.out.println(circle.getRadius());
+            circle.draw(g);
+            
+        }
+        for (Circle circle: circles) {
+            System.out.println(circle.getRadius());
+            circle.draw(g);
+            
+        }
+        //circles.clear();
     }
 }
