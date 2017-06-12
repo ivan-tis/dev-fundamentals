@@ -1,11 +1,14 @@
 #BlueJ package file
-dependency1.from=DrawingPanel
-dependency1.to=Circle
+dependency1.from=DrawingWindow
+dependency1.to=DrawingPanel
 dependency1.type=UsesDependency
+dependency2.from=DrawingPanel
+dependency2.to=Circle
+dependency2.type=UsesDependency
 editor.fx.0.height=739
 editor.fx.0.width=816
-editor.fx.0.x=19
-editor.fx.0.y=0
+editor.fx.0.x=329
+editor.fx.0.y=8
 objectbench.height=87
 objectbench.width=760
 package.divider.horizontal=0.6
@@ -16,7 +19,7 @@ package.editor.x=97
 package.editor.y=120
 package.frame.height=600
 package.frame.width=800
-package.numDependencies=1
+package.numDependencies=2
 package.numTargets=3
 package.showExtends=true
 package.showUses=true
