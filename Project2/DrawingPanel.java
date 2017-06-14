@@ -32,16 +32,16 @@ public class DrawingPanel extends JPanel
             @Override
             public void mouseClicked(MouseEvent event) {
                 int random = (int)(Math.random() * 2);
-                //if (!clickIsInsideAnyCircle(event) && !clickIsInsideAnySquare(event)) {
+               if (!clickIsInsideAnyCircle(event)) {
                     if (random == 1) {
                         addNewCircle(event);
                     }
                     else {
                         addNewSquare(event);
                     }
-                //}
+                }
                 
-               // Collections.sort((List<Circle>)circles, new CircleComparator());
+               //Collections.sort((List<Circle>)circles, new CircleComparator());
                 repaint();
             }
             

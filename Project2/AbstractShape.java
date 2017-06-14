@@ -40,8 +40,5 @@ public abstract class AbstractShape
     }
     
     
-    protected void draw(Graphics g) {
-        g.setColor(color);
-        g.fillRect(x , y - radius, radius * 2, radius * 2);
-    }
+    public abstract void draw(Graphics g);
 }
