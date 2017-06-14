@@ -11,7 +11,7 @@ public class DrawingWindow extends JFrame
 {
     
     private DrawingPanel panel;
-
+    
     public DrawingWindow(String title) {
         super(title);
         panel = new DrawingPanel();

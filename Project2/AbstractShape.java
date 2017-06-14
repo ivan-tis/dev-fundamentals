@@ -12,7 +12,7 @@ public abstract class AbstractShape
     protected int y;
     protected Color color;
     protected boolean changeAspect;
-    
+    protected int radius;
     
     protected Color getNextColor() {
     int red = (int) (255 * Math.random());
@@ -20,5 +20,28 @@ public abstract class AbstractShape
     int blue = (int) (255 * Math.random());
     
     return new Color(red, green, blue);
+    }
+
+    
+    protected void clickAt(int x, int y) {
+        changeAspect = contains(x, y);
+         if (changeAspect) {
+            color = getNextColor();
+            changeAspect = false;
+            radius = (int)(200 * Math.random());
+        }
+    }
+    
+    protected boolean contains(int x, int y) {
+    int xCenter = this.x;
+    int yCenter = this.y;
+    double d = Math.hypot(yCenter - y, xCenter - x);
+    return d <= radius;
+    }
+    
+    
+    protected void draw(Graphics g) {
+        g.setColor(color);
+        g.fillRect(x , y - radius, radius * 2, radius * 2);
     }
 }

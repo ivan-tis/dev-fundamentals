@@ -9,7 +9,7 @@ import java.awt.Graphics;
  */
 public class Circle extends AbstractShape
 {
-    private int radius;
+
 
     
     public Circle(int radius, Color color) {
@@ -37,25 +37,6 @@ public class Circle extends AbstractShape
         g.fillOval(x - radius , y - radius, radius * 2, radius * 2);
     }
     
-    public void clickAt(int x, int y) {
-        changeAspect = contains(x, y);
-         if (changeAspect) {
-            color = getNextColor();
-            changeAspect = false;
-            radius = (int)(200 * Math.random());
-        }
-    }
-    
-    
-    
 
-    
-    public boolean contains(int x, int y) {
-        int xCenter = this.x;
-        int yCenter = this.y;
-        double d = Math.hypot(yCenter - y, xCenter - x);
-        return d <= radius;
-    }
-    
 
 }

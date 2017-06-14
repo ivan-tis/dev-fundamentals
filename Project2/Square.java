@@ -8,11 +8,7 @@ import java.awt.Graphics;
  */
 public class Square extends AbstractShape
 {
-    private int radius;
-    private int x;
-    private int y;
-    private Color color;
-    private boolean changeAspect;
+
     private int side;
     public Square(int radius, Color color) {
         this.radius = radius;
@@ -40,19 +36,5 @@ public class Square extends AbstractShape
     }
     
 
-    public boolean contains(int x, int y) {
-        int xCenter = this.x;
-        int yCenter = this.y;
-        double d = Math.hypot(yCenter - y, xCenter - x);
-        return d <= radius;
-    }
-    
-       public void clickAt(int x, int y) {
-        changeAspect = contains(x, y);
-         if (changeAspect) {
-            color = getNextColor();
-            changeAspect = false;
-            radius = (int)(200 * Math.random());
-        }
-    }
+   
 }
