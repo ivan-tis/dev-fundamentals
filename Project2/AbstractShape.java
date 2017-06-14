@@ -28,17 +28,17 @@ public abstract class AbstractShape
          if (changeAspect) {
             color = getNextColor();
             changeAspect = false;
-            radius = (int)(200 * Math.random());
+            changeAspect();
         }
     }
     
-    protected boolean contains(int x, int y) {
-    int xCenter = this.x;
-    int yCenter = this.y;
-    double d = Math.hypot(yCenter - y, xCenter - x);
-    return d <= radius;
+    
+    
+    protected void draw(Graphics g) {
+        g.setColor(color);
+        drawShape(g);
     }
-    
-    
-    public abstract void draw(Graphics g);
+    public abstract boolean contains(int x, int y);
+    public abstract void changeAspect();
+    public abstract void drawShape(Graphics g);
 }
